@@ -1,4 +1,7 @@
-public static int FNV1_32_HASH(String str) {
+package com.ryan.util;
+
+public class HashUtil {
+    public static int FNV1_32_HASH(String str) {
         final int p = 16777619;
         int hash = (int) 2166136261L;
         for (int i = 0; i < str.length(); i++) {
@@ -13,4 +16,5 @@ public static int FNV1_32_HASH(String str) {
         if (hash < 0)
             hash = Math.abs(hash);
         return hash;
+    }
 }
