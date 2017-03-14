@@ -14,7 +14,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.       *
  *----------------------------------------------------------------------------*/
 
-package org.kocakosm.pitaya.collection;
+package com.ryan.collection;
 
 import java.util.Collection;
 

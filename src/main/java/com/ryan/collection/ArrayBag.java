@@ -16,170 +16,145 @@ import java.util.List;
  * accepts {@code null} elements. Instances of this class are not thread-safe.
  *
  * @param <E> the type of the elements in the bag.
- *
- * @since 0.3
- *
  * @author Osman KOCAK
+ * @since 0.3
  */
-public final class ArrayBag<E> extends AbstractBag<E> implements Serializable
-{
-	private static final long serialVersionUID = 2071675609121734096L;
+public final class ArrayBag<E> extends AbstractBag<E> implements Serializable {
+    private static final long serialVersionUID = 2071675609121734096L;
 
-	private final List<E> entries;
+    private final List<E> entries;
 
-	/** Creates a new empty {@code ArrayBag}. */
-	public ArrayBag()
-	{
-		this(10);
-	}
+    /**
+     * Creates a new empty {@code ArrayBag}.
+     */
+    public ArrayBag() {
+        this(10);
+    }
 
-	/**
-	 * Creates a new empty {@code ArrayBag} having the given initial capacity.
-	 *
-	 * @param initialCapacity the bag's initial capacity.
-	 *
-	 * @throws IllegalArgumentException if {@code initialCapacity < 0}.
-	 */
-	public ArrayBag(int initialCapacity)
-	{
-		Parameters.checkCondition(initialCapacity >= 0);
-		this.entries = new ArrayList<E>(initialCapacity);
-	}
+    /**
+     * Creates a new empty {@code ArrayBag} having the given initial capacity.
+     *
+     * @param initialCapacity the bag's initial capacity.
+     * @throws IllegalArgumentException if {@code initialCapacity < 0}.
+     */
+    public ArrayBag(int initialCapacity) {
+        Parameters.checkCondition(initialCapacity >= 0);
+        this.entries = new ArrayList<E>(initialCapacity);
+    }
 
-	/**
-	 * Creates a new {@code ArrayBag} using the elements contained in the
-	 * given {@code Collection}.
-	 *
-	 * @param c the collection to use to populate the created bag.
-	 *
-	 * @throws NullPointerException if {@code c} is {@code null}.
-	 */
-	public ArrayBag(Collection<? extends E> c)
-	{
-		this(c.size());
-		addAll(c);
-	}
+    /**
+     * Creates a new {@code ArrayBag} using the elements contained in the
+     * given {@code Collection}.
+     *
+     * @param c the collection to use to populate the created bag.
+     * @throws NullPointerException if {@code c} is {@code null}.
+     */
+    public ArrayBag(Collection<? extends E> c) {
+        this(c.size());
+        addAll(c);
+    }
 
-	/**
-	 * Creates a new {@code ArrayBag} using the elements contained in the
-	 * given {@code Iterable}.
-	 *
-	 * @param i the iterable to use to populate the created bag.
-	 *
-	 * @throws NullPointerException if {@code i} is {@code null}.
-	 */
-	public ArrayBag(Iterable<? extends E> i)
-	{
-		this();
-		for (E e : i) {
-			add(e);
-		}
-	}
+    /**
+     * Creates a new {@code ArrayBag} using the elements contained in the
+     * given {@code Iterable}.
+     *
+     * @param i the iterable to use to populate the created bag.
+     * @throws NullPointerException if {@code i} is {@code null}.
+     */
+    public ArrayBag(Iterable<? extends E> i) {
+        this();
+        for (E e : i) {
+            add(e);
+        }
+    }
 
-	/**
-	 * Creates a new {@code ArrayBag} using the elements contained in the
-	 * given {@code Iterator}.
-	 *
-	 * @param i the iterator to use to populate the created bag.
-	 *
-	 * @throws NullPointerException if {@code i} is {@code null}.
-	 */
-	public ArrayBag(Iterator<? extends E> i)
-	{
-		this();
-		while (i.hasNext()) {
-			add(i.next());
-		}
-	}
+    /**
+     * Creates a new {@code ArrayBag} using the elements contained in the
+     * given {@code Iterator}.
+     *
+     * @param i the iterator to use to populate the created bag.
+     * @throws NullPointerException if {@code i} is {@code null}.
+     */
+    public ArrayBag(Iterator<? extends E> i) {
+        this();
+        while (i.hasNext()) {
+            add(i.next());
+        }
+    }
 
-	/**
-	 * Creates a new {@code ArrayBag} using the elements contained in the
-	 * given array.
-	 *
-	 * @param elements the elements to use to populate the created bag.
-	 *
-	 * @throws NullPointerException if {@code elements} is {@code null}.
-	 */
-	public ArrayBag(E... elements)
-	{
-		this(Arrays.asList(elements));
-	}
+    /**
+     * Creates a new {@code ArrayBag} using the elements contained in the
+     * given array.
+     *
+     * @param elements the elements to use to populate the created bag.
+     * @throws NullPointerException if {@code elements} is {@code null}.
+     */
+    public ArrayBag(E... elements) {
+        this(Arrays.asList(elements));
+    }
 
-	@Override
-	public Iterator<E> iterator()
-	{
-		return entries.iterator();
-	}
+    @Override
+    public Iterator<E> iterator() {
+        return entries.iterator();
+    }
 
-	@Override
-	public int size()
-	{
-		return entries.size();
-	}
+    @Override
+    public int size() {
+        return entries.size();
+    }
 
-	@Override
-	public void clear()
-	{
-		entries.clear();
-	}
+    @Override
+    public void clear() {
+        entries.clear();
+    }
 
-	@Override
-	public boolean retainAll(Collection<?> c)
-	{
-		return entries.retainAll(c);
-	}
+    @Override
+    public boolean retainAll(Collection<?> c) {
+        return entries.retainAll(c);
+    }
 
-	@Override
-	public boolean removeAll(Collection<?> c)
-	{
-		return entries.removeAll(c);
-	}
+    @Override
+    public boolean removeAll(Collection<?> c) {
+        return entries.removeAll(c);
+    }
 
-	@Override
-	public boolean addAll(Collection<? extends E> c)
-	{
-		return entries.addAll(c);
-	}
+    @Override
+    public boolean addAll(Collection<? extends E> c) {
+        return entries.addAll(c);
+    }
 
-	@Override
-	public boolean containsAll(Collection<?> c)
-	{
-		return entries.containsAll(c);
-	}
+    @Override
+    public boolean containsAll(Collection<?> c) {
+        return entries.containsAll(c);
+    }
 
-	@Override
-	public boolean remove(Object o)
-	{
-		return entries.remove(o);
-	}
+    @Override
+    public boolean remove(Object o) {
+        return entries.remove(o);
+    }
 
-	@Override
-	public boolean add(E e)
-	{
-		return entries.add(e);
-	}
+    @Override
+    public boolean add(E e) {
+        return entries.add(e);
+    }
 
-	@Override
-	public <T> T[] toArray(T[] a)
-	{
-		return entries.toArray(a);
-	}
+    @Override
+    public <T> T[] toArray(T[] a) {
+        return entries.toArray(a);
+    }
 
-	@Override
-	public Object[] toArray()
-	{
-		return entries.toArray();
-	}
+    @Override
+    public Object[] toArray() {
+        return entries.toArray();
+    }
 
-	@Override
-	public boolean contains(Object o)
-	{
-		return entries.contains(o);
-	}
+    @Override
+    public boolean contains(Object o) {
+        return entries.contains(o);
+    }
 
-	@Override
-	public boolean isEmpty()
-	{
-		return entries.isEmpty();
-	}
+    @Override
+    public boolean isEmpty() {
+        return entries.isEmpty();
+    }
 }

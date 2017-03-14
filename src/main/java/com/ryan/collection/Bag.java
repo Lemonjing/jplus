@@ -8,7 +8,7 @@ import java.util.Set;
  * which may have duplicate elements.
  *
  * @param <E> the type of the elements in the bag.
- *
+ * @author Osman KOCAK
  * @see Collection
  * @see AbstractBag
  * @see ArrayBag
@@ -17,17 +17,13 @@ import java.util.Set;
  * @see CopyOnWriteArrayBag
  * @see ImmutableBag
  * @see Bags
- *
- * @author Osman KOCAK
  */
-public interface Bag<E> extends Collection<E>
-{
-	/**
-	 * Returns the count of the given element in this bag.
-	 *
-	 * @param e the object to count.
-	 *
-	 * @return the number of occurrences of {@code e} in this bag.
-	 */
-	int count(E e);
+public interface Bag<E> extends Collection<E> {
+    /**
+     * Returns the count of the given element in this bag.
+     *
+     * @param e the object to count.
+     * @return the number of occurrences of {@code e} in this bag.
+     */
+    int count(E e);
 }
